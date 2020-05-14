@@ -13,6 +13,14 @@ SCOREBOARD_SEPARATOR_COLOR = (150, 150, 150)
 GOLD_AMOUNT = 10
 CELL_AMOUNT_Y = 9
 CELL_AMOUNT_X = 21
+CELLS = {
+    "x": 11,
+    "y": 5
+}
+EXIT = {
+    "x": CELLS["x"] - 1,
+    "y": CELLS["y"] // 2
+}
 EXIT_Y = CELL_AMOUNT_Y // 2
 EXIT_X = CELL_AMOUNT_X - 1
 GAME_SPEED = 1
@@ -41,6 +49,11 @@ POSSIBLE_ACTIONS = {
 # Player / Gnome
 GNOME_Y = 0
 GNOME_X = 0
+GNOME = {
+    "x": 0,
+    "y": 0,
+    "vision_size": 2
+}
 GNOME_VISION_SIZE = 2
 
 # Calculated values
@@ -49,9 +62,15 @@ SCREEN_HEIGHT = CELL_SIZE * CELL_AMOUNT_Y + MARGIN * 2 + SCOREBOARD_HEIGHT
 GAME_PLAY_HEIGHT = CELL_SIZE * CELL_AMOUNT_Y
 GAME_PLAY_WIDTH = CELL_SIZE * CELL_AMOUNT_X
 
-# Walls
-WALL_1 = [{"x": 4, "y": 4}, {"x": 5, "y": 4}, {"x": 6, "y": 4}, {"x": 6, "y": 5}, {"x": 6, "y": 6},
-          {"x": 6, "y": 7}, {"x": 6, "y": 8}, {"x": 5, "y": 8}, {"x": 4, "y": 8}]
+# Walls map(11 x 5)
+WALL_1 = [{"x": 4, "y": 0}, {"x": 4, "y": 1}, {"x": 4, "y": 2}, {"x": 3, "y": 2}, {"x": 2, "y": 2}]
 
-WALL_2 = [{"x": 20, "y": 4}, {"x": 21, "y": 4}, {"x": 22, "y": 4}, {"x": 22, "y": 5}, {"x": 22, "y": 6},
-          {"x": 22, "y": 7}, {"x": 22, "y": 8}, {"x": 21, "y": 8}, {"x": 20, "y": 8}]
+WALL_2 = [{"x": 6, "y": 2}, {"x": 7, "y": 2}, {"x": 8, "y": 2}, {"x": 8, "y": 3}, {"x": 8, "y": 4}]
+
+
+# Walls
+# WALL_1 = [{"x": 4, "y": 4}, {"x": 5, "y": 4}, {"x": 6, "y": 4}, {"x": 6, "y": 5}, {"x": 6, "y": 6},
+#           {"x": 6, "y": 7}, {"x": 6, "y": 8}, {"x": 5, "y": 8}, {"x": 4, "y": 8}]
+#
+# WALL_2 = [{"x": 20, "y": 4}, {"x": 21, "y": 4}, {"x": 22, "y": 4}, {"x": 22, "y": 5}, {"x": 22, "y": 6},
+#           {"x": 22, "y": 7}, {"x": 22, "y": 8}, {"x": 21, "y": 8}, {"x": 20, "y": 8}]
