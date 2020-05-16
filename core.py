@@ -80,7 +80,10 @@ class Game:
 
     def get_exit(self):
         return helpers.find_exit_distance(self.exit, self.gnome)
-    
+
+    def get_step(self):
+        return self.step_counter
+
     def get_gnome_vision(self):
         return helpers.get_gnome_vision(self.map, self.gnome)
 
@@ -179,17 +182,23 @@ class Game:
 
             helpers.draw_game(screen, self.gnome, self.get_gnome_vision())
 
-            # gold_text_placeholder, gold_rect_text_placeholder = helpers.update_gold_text_placeholder(font)
-            # screen.blit(gold_text_placeholder, gold_rect_text_placeholder)
-            #
-            # exit_text_placeholder, exit_rect_text_placeholder = helpers.update_exit_text_placeholder(font)
-            # screen.blit(exit_text_placeholder, exit_rect_text_placeholder)
-            #
-            # gold_text, gold_text_rect = helpers.update_gold_text(font, self.get_gold())
-            # screen.blit(gold_text, gold_text_rect)
-            #
-            # exit_text, exit_text_rect = helpers.update_exit_text(font, self.get_exit())
-            # screen.blit(exit_text, exit_text_rect)
+            gold_text_placeholder, gold_rect_text_placeholder = helpers.update_gold_text_placeholder(font)
+            screen.blit(gold_text_placeholder, gold_rect_text_placeholder)
+
+            exit_text_placeholder, exit_rect_text_placeholder = helpers.update_exit_text_placeholder(font)
+            screen.blit(exit_text_placeholder, exit_rect_text_placeholder)
+
+            step_text_placeholder, step_rect_text_placeholder = helpers.update_step_text_placeholder(font)
+            screen.blit(step_text_placeholder, step_rect_text_placeholder)
+
+            gold_text, gold_text_rect = helpers.update_gold_text(font, self.get_gold())
+            screen.blit(gold_text, gold_text_rect)
+
+            exit_text, exit_text_rect = helpers.update_exit_text(font, self.get_exit())
+            screen.blit(exit_text, exit_text_rect)
+
+            step_text, step_text_rect = helpers.update_step_text(font, self.get_step())
+            screen.blit(step_text, step_text_rect)
 
             # update display
             pygame.display.flip()

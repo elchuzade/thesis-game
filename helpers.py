@@ -166,7 +166,6 @@ def draw_vision(screen, gnome, vision):
                                                         constants.CELL_SIZE, constants.CELL_SIZE))
 
     def draw_wall():
-        print(col, row)
         pygame.draw.rect(screen, constants.WALL_COLOR, ((col + gnome.x - gnome.vision_size) * constants.CELL_SIZE
                                                         + constants.MARGIN,
                                                         (row + gnome.y - gnome.vision_size) * constants.CELL_SIZE
@@ -231,3 +230,53 @@ def draw_gnome(screen, gnome):
                         int(gnome.y * constants.CELL_SIZE + constants.CELL_SIZE / 2) + constants.MARGIN],
                        int(constants.GNOME_RADIUS))
 
+
+""" TEXT """
+
+
+def update_gold_text_placeholder(font):
+    text = font.render("GOLD: ", True, constants.TEXT_COLOR, constants.SCOREBOARD_BACKGROUND)
+    text_rect = text.get_rect()
+    text_rect.center = (constants.SCREEN_WIDTH // 2 - constants.FONT_SIZE * 1.5 - constants.TEXT_WIDTH,
+                        (constants.SCOREBOARD_HEIGHT + constants.SCREEN_HEIGHT // 2) - constants.FONT_SIZE * 1.5)
+    return text, text_rect
+
+
+def update_step_text_placeholder(font):
+    text = font.render("STEP: ", True, constants.TEXT_COLOR, constants.SCOREBOARD_BACKGROUND)
+    text_rect = text.get_rect()
+    text_rect.center = (constants.SCREEN_WIDTH // 2 - constants.FONT_SIZE * 1.5 - constants.TEXT_WIDTH,
+                        (constants.SCOREBOARD_HEIGHT + constants.SCREEN_HEIGHT // 2) + constants.FONT_SIZE // 2)
+    return text, text_rect
+
+
+def update_exit_text_placeholder(font):
+    text = font.render("EXIT: ", True, constants.TEXT_COLOR, constants.SCOREBOARD_BACKGROUND)
+    text_rect = text.get_rect()
+    text_rect.center = (constants.SCREEN_WIDTH // 2 + constants.FONT_SIZE * 2.5,
+                        (constants.SCOREBOARD_HEIGHT + constants.SCREEN_HEIGHT // 2) - constants.FONT_SIZE * 1.5)
+    return text, text_rect
+
+
+def update_gold_text(font, collected_gold):
+    text = font.render(str(collected_gold), True, constants.TEXT_COLOR, constants.SCOREBOARD_BACKGROUND)
+    text_rect = text.get_rect()
+    text_rect.center = ((constants.SCREEN_WIDTH // 2) - constants.FONT_SIZE * 1.5,
+                        (constants.SCOREBOARD_HEIGHT + constants.SCREEN_HEIGHT // 2) - constants.FONT_SIZE * 1.5)
+    return text, text_rect
+
+
+def update_step_text(font, step_counter):
+    text = font.render(str(step_counter), True, constants.TEXT_COLOR, constants.SCOREBOARD_BACKGROUND)
+    text_rect = text.get_rect()
+    text_rect.center = ((constants.SCREEN_WIDTH // 2) - constants.FONT_SIZE * 1.5,
+                        (constants.SCOREBOARD_HEIGHT + constants.SCREEN_HEIGHT // 2) + constants.FONT_SIZE // 2)
+    return text, text_rect
+
+
+def update_exit_text(font, exit_distance):
+    text = font.render(str(exit_distance), True, constants.TEXT_COLOR, constants.SCOREBOARD_BACKGROUND)
+    text_rect = text.get_rect()
+    text_rect.center = ((constants.SCREEN_WIDTH // 2) + constants.FONT_SIZE * 2.5 + constants.TEXT_WIDTH,
+                        (constants.SCOREBOARD_HEIGHT + constants.SCREEN_HEIGHT // 2) - constants.FONT_SIZE * 1.5)
+    return text, text_rect
